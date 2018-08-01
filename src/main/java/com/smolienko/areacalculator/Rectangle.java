@@ -132,6 +132,19 @@ public class Rectangle implements Figure {
         return functionOfGauss(points);
     }
 
+    /**
+     * It is realization mathematical algorithm to determine the area of a
+     * simple polygon.The area formula is derived by taking each edge AB, 
+     * and calculating the (signed) area of triangle ABO with a vertex at 
+     * the origin O, by taking the cross-product (which gives the area of 
+     * a parallelogram) and dividing by 2. As one wraps around the polygon, 
+     * these triangles with positive and negative area will overlap, and 
+     * the areas between the origin and the polygon will be cancelled out 
+     * and sum to 0, while only the area inside the reference triangle remains. 
+     *
+     * @param points sorted {@code List} of  {@code Point} which describes a polygon.
+     * @return value of are
+     */
     private double functionOfGauss(List<MarkedPoint> points) {
         if (points.size() < 3) {
             return 0.0;
